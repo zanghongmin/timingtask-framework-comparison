@@ -18,5 +18,5 @@
 * elastic-job-lite
 
     1. [官网地址](http://elasticjob.io/docs/elastic-job-lite/00-overview/)
-    2. [自写代码例子:分片、任务日志、任务监听](elasticjob/elastic-job.md)
+    2. [自写代码例子:分片、任务日志、任务监听](elasticjob/)
 
