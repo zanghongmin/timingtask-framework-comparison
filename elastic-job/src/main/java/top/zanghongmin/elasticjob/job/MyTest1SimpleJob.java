@@ -10,6 +10,8 @@ public class MyTest1SimpleJob implements SimpleJob {
         System.out.println(String.format("MyTest1SimpleJob------Thread ID: %s, 任务总片数: %s, 当前分片项: %s",
                 Thread.currentThread().getId(),shardingContext.getShardingTotalCount(), shardingContext.getShardingItem()));
 
+        System.out.println(String.format("select * from test where id/%s = %s",shardingContext.getShardingTotalCount(), shardingContext.getShardingItem()));
+
     }
 
 }

@@ -1,23 +1,35 @@
->一、开源定时任务框架比较
+>elastic-job-lite
 
-| feature | quartz | elastic-job | xxl-job |
-| :---: | :---: | :---: | :---: |
-|依赖| mysql | jdk1.7+、zookeeper 3.4.6+| jdk1.7+、mysql
-|HA|多节点部署，通过竞争数据库锁<br>来保证只有一个节点执行任务|通过zookeeper的注册与发现<br>可以动态的添加服务器<br>支持水平扩容|集群部署
-|任务分片|—|支持|支持
-|文档完善|完善|完善|完善
-|管理界面|无|支持|支持
-|难易程度|简单|较复杂|简单
-|公司|OpenSymphony|当当网|个人
-|高级功能|—|弹性扩容，多种作业模式<br>失效转移，运行状态收集<br>多线程处理数据，幂等性<br>容错处理，spring命名空间支持|弹性扩容，分片广播<br>故障转移，Rolling实时日志<br>GLUE（支持在线编辑代码，免发布）<br>任务进度监控，任务依赖<br>数据加密，邮件报警<br>运行报表，国际化
-|缺点|没有管理界面<br>不支持任务分片<br>不适用于分布式场景|需要引入zookeeper、mesos<br> 增加系统复杂度<br>学习成本较高|调度中心通过获取DB锁<br>来保证集群中执行任务的唯一性<br>如果短任务很多<br>随着调度中心集群数量增加<br>那么数据库的锁竞争会<br>比较厉害，性能不好。
-|使用企业|大众化产品<br>对分布式调度要求不高<br>公司大面积使用|36氪，当当网，国美<br>金柚网，联想，唯品会<br>亚信，平安，猪八戒|大众点评，运满满<br>优信二手车，拍拍贷
+   
+1.  [官网地址](http://elasticjob.io/docs/elastic-job-lite/00-overview/)  和  [官网样例](https://github.com/elasticjob/elastic-job-example)
 
->二、各个开源框架例子
+2. 功能列表
 
-* elastic-job-lite
+    ```
+    * 分布式调度协调
+    * 弹性扩容缩容
+    * 失效转移
+    * 错过执行作业重触发
+    * 作业分片一致性，保证同一分片在分布式环境中仅一个执行实例
+    * 自诊断并修复分布式不稳定造成的问题
+    * 支持并行调度
+    * 支持作业生命周期操作
+    * 丰富的作业类型（simple、dataflow、script）
+    * Spring整合以及命名空间提供
+    * 运维平台
+    ```
+3. 关键代码说明
+   ```
+   *  业务分片逻辑 select * from test where id/5 = 3
+      数据列除以总分片数 等于 当前分片项 ，业务根据这个逻辑进行分片，在多台机器上运行
+   *  xml配置 event-trace-rdb-data-source="dataSource"
+      指定任务运行日志，入数据库
+   *  xml配置 job-exception-handler="top.zanghongmin.elasticjob.config.DefaultJobExceptionHandler"
+      执行任务异常处理类，可实现邮件通知
+   *  xml配置 sharding-total-count="10"
+      配置总分片数为10，如果启动两个实例，每个实例各运行5个分片，停止一个实例，另一个实例会自动运行全部10个实例
+   *  xml配置 <job:listener class="top.zanghongmin.elasticjob.config.MyElasticJobListener"/>
+      对任务的监听，开始运行和结束任务时运行自定义代码
+   ```
+    
 
-    1. [官网地址](http://elasticjob.io/docs/elastic-job-lite/00-overview/)
-    2. [自写代码例子](./elasticjob/elastic-job.md/)
-* two
-* three
