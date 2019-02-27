@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 public class TestService {
 
 
-    public void Test(String name){
+    public void Test(String name) {
 
 
-        System.out.println(Thread.currentThread().getId() +"  TestService : " + name + " " + System.currentTimeMillis());
+        System.out.println(Thread.currentThread().getId() + "  TestService : " + name + " " + System.currentTimeMillis());
     }
 }
