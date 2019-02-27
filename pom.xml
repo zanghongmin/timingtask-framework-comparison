@@ -11,6 +11,7 @@
 
     <modules>
         <module>elastic-job</module>
+        <module>quartz</module>
     </modules>
 
 </project>
