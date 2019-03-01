@@ -27,5 +27,8 @@
       XxlJobConfig类中新建Bean(XxlJobSpringExecutor),初始化start方法与admin进行连接
       Job任务集成IJobHandler接口和@JobHandler(value="demoJobHandler")注解
    ```
+4. admin管理页面
+ 
+![image](xxljob.png)
     
 

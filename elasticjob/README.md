@@ -30,6 +30,9 @@
       配置总分片数为10，如果启动两个实例，每个实例各运行5个分片，停止一个实例，另一个实例会自动运行全部10个实例
    *  xml配置 <job:listener class="top.zanghongmin.elasticjob.config.MyElasticJobListener"/>
       对任务的监听，开始运行和结束任务时运行自定义代码
-   ```
+   ```   
+4. 任务管理页面
+ 
+![image](elasticjob.png)
     
 
