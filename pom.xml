@@ -10,8 +10,9 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>elastic-job</module>
+        <module>elasticjob</module>
         <module>quartz</module>
+        <module>xxljob</module>
     </modules>
 
 </project>

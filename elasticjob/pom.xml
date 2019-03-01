@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <groupId>top.zanghongmin</groupId>
-    <artifactId>elastic-job</artifactId>
+    <artifactId>elasticjob</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>elastic-job</name>
+    <name>elasticjob</name>
     <description>elastic-job Spring Boot</description>
     <modelVersion>4.0.0</modelVersion>
 

@@ -9,9 +9,9 @@ import top.zanghongmin.quartz.job.SampleJob1;
 import top.zanghongmin.quartz.job.SampleJob2;
 
 @SpringBootApplication()
-public class SpringBootRunApplication {
+public class QuartzSpringBootApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootRunApplication.class, args);
+        SpringApplication.run(QuartzSpringBootApplication.class, args);
     }
 }
 
